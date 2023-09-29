@@ -4,7 +4,8 @@
 //    Stores the notes and the rests between each note.
 // 2. noteDurations[] -> int array of time duration in ms.
 //    Stores the values of duration of each note and rest.
-// 3. DR, WR, HR, QR -> int values.
+// 3. DR, WR, HR, QHR, QR -> int values. QHR is basically a hack,
+//    to make the double-beamed notes sound just right.
 //    Allowed values of rests (2, 4, 8, 16).
 // 4. tempo and rest -> int values.
 //    Denotes the base speed of a note and a rest respectively.
@@ -37,6 +38,7 @@
 int DR = 2;
 int WR = 4;
 int HR = 8;
+int QHR = 14;
 int QR = 16;
 
 int take5[] =
@@ -64,10 +66,10 @@ int noteDurations[] =
   4, HR, 8, WR, 4, HR, 8, WR, // Bouncy bass line
   4, HR, 4, HR, 4, HR, 4, HR,
   4, HR, 4, HR, 4, HR, 4, HR, 2, WR, // Initial melody line
-  2, HR, 2, QR, 4, QR, 2, QR, 2, DR, // The spicy trill
-  8, QR, 4, QR, 4, QR, 4, QR, 4, QR, 4, WR,
-  8, QR, 4, QR, 4, QR, 4, QR, 4, QR, 4, DR, // Phrase end
-  4, WR, 8, QR, 8, QR, 8, QR, 8, QR, 8, QR, 4, DR, // Pre-loop phrase
+  2, HR, 2, QR, 4, QR, 2, QHR, 2, DR, // The spicy trill
+  8, HR, 4, QHR, 4, QHR, 4, QHR, 4, QHR, 4, WR,
+  8, HR, 4, QHR, 4, QHR, 4, QHR, 4, QHR, 4, DR, // Phrase end
+  4, WR, 8, QHR, 8, QHR, 8, QHR, 8, QHR, 8, QHR, 4, DR, // Pre-loop phrase
   1,
 };
 
